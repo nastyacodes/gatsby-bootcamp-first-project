@@ -5,7 +5,7 @@ date: "2020-11-26"
 
 I started learning GatsbyJS!
 
-![Anastasia](./anastasia.jpg)
+![Anastasia](.\anastasia.jpg)
 
 ## Topics Covered
 
