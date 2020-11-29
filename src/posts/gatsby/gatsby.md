@@ -5,6 +5,8 @@ date: "2020-11-26"
 
 I started learning GatsbyJS!
 
+![Anastasia](./anastasia.jpg)
+
 ## Topics Covered
 
 1. Gatsby
