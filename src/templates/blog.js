@@ -7,6 +7,7 @@ import { BLOCKS, INLINES } from "@contentful/rich-text-types"
 import * as propTypes from "prop-types"
 
 import Layout from '../components/layout'
+import Head from '../components/head'
 
 // export const query = graphql`
 //     query ($slug: String!) {
@@ -59,6 +60,7 @@ const Blog = (props) => {
 
     return (
         <Layout>
+            <Head title={props.data.contentfulBlogPost.title}/>
             <h1>{props.data.contentfulBlogPost.title}</h1>
             <p>{props.data.contentfulBlogPost.publishedDate}</p>
             {body && renderRichText(body, options)}

@@ -11,6 +11,7 @@ module.exports = {
     // description: 'Just a fun study project'
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-contentful',
       options: {
