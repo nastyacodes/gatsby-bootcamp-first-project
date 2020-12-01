@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 
-const Page404 = () => {
+const NotFound = () => {
     return (
         <Layout>
             <h1>Unfortunately a page you are looking for isn't existing</h1>
@@ -12,4 +12,4 @@ const Page404 = () => {
     )
 }
 
-export default Page404
+export default NotFound

@@ -1,42 +1,42 @@
 const path = require('path')
 
-module.exports.onCreateNode = ({ node, actions }) => {
-    const { createNode, createNodeField } = actions
+// Don't need anymore cause we create slugs on Contentful
 
-    if (node.internal.type === 'MarkdownRemark') {
-        const slug = path.basename(node.fileAbsolutePath, '.md')
+// module.exports.onCreateNode = ({ node, actions }) => {
+//     const { createNode, createNodeField } = actions
 
-        createNodeField({
-            node,
-            name: 'slug',
-            value: slug
-        }) //this eds slug to the fields of node (GraphQL)
-    }
-}
+//     if (node.internal.type === 'MarkdownRemark') {
+//         const slug = path.basename(node.fileAbsolutePath, '.md')
+
+//         createNodeField({
+//             node,
+//             name: 'slug',
+//             value: slug
+//         }) //this eds slug to the fields of node (GraphQL)
+//     }
+// }
 
 module.exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
     const blogTemplate = path.resolve('./src/templates/blog.js')
     const res = await graphql(`
         query {
-            allMarkdownRemark {
+            allContentfulBlogPost {
                 edges {
                     node {
-                        fields {
-                            slug
-                        }
+                        slug
                     }
                 }
             }
         }
     `)
 
-    res.data.allMarkdownRemark.edges.forEach((edge) => {
+    res.data.allContentfulBlogPost.edges.forEach((edge) => {
         createPage({
             component: blogTemplate,
-            path: `/blog/${edge.node.fields.slug}`,
+            path: `/blog/${edge.node.slug}`,
             context: {
-                slug: edge.node.fields.slug
+                slug: edge.node.slug
             }
         })
     })
