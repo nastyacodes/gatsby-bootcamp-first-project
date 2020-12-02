@@ -7,7 +7,8 @@
 module.exports = {
   siteMetadata: {
     title: 'Full Stack Dev Blog',
-    author: 'Anastasia Shpit'
+    author: '@nastyacodes',
+    link: 'https://github.com/nastyacodes'
     // description: 'Just a fun study project'
   },
   plugins: [
